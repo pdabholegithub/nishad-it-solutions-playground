@@ -1,16 +1,21 @@
 import { useRef } from 'react';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 
+import img1 from '../../assets/images/wall_art_1.png';
+import img2 from '../../assets/images/wall_art_2.png';
+import img3 from '../../assets/images/wall_art_3.png';
+import img4 from '../../assets/images/wall_art_4.png';
+
 const IMAGES = [
-  { id: 1, src: '/images/wall_art_1.png', alt: 'Golden Tree Wall Art' },
-  { id: 2, src: '/images/wall_art_2.png', alt: 'LED Landscape Wall Art' },
-  { id: 3, src: '/images/wall_art_3.png', alt: 'Metallic Feather Set' },
-  { id: 4, src: '/images/wall_art_4.png', alt: 'Abstract Optical Illusion' },
+  { id: 1, src: img1, alt: 'Golden Tree Wall Art' },
+  { id: 2, src: img2, alt: 'LED Landscape Wall Art' },
+  { id: 3, src: img3, alt: 'Metallic Feather Set' },
+  { id: 4, src: img4, alt: 'Abstract Optical Illusion' },
   // Duplicate for scrolling effect
-  { id: 5, src: '/images/wall_art_1.png', alt: 'Golden Tree Wall Art Duplicate' },
-  { id: 6, src: '/images/wall_art_2.png', alt: 'LED Landscape Wall Art Duplicate' },
-  { id: 7, src: '/images/wall_art_3.png', alt: 'Metallic Feather Set Duplicate' },
-  { id: 8, src: '/images/wall_art_4.png', alt: 'Abstract Optical Illusion Duplicate' },
+  { id: 5, src: img1, alt: 'Golden Tree Wall Art Duplicate' },
+  { id: 6, src: img2, alt: 'LED Landscape Wall Art Duplicate' },
+  { id: 7, src: img3, alt: 'Metallic Feather Set Duplicate' },
+  { id: 8, src: img4, alt: 'Abstract Optical Illusion Duplicate' },
 ];
 
 export function ImageCarousel() {
