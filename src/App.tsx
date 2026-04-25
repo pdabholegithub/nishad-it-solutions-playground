@@ -12,6 +12,8 @@ import { WizardPage } from './pages/WizardPage';
 import { SearchPage } from './pages/SearchPage';
 import { InfiniteScrollPage } from './pages/InfiniteScrollPage';
 import { NotFoundPage } from './pages/NotFoundPage';
+import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
+import { TermsOfServicePage } from './pages/TermsOfServicePage';
 
 export default function App() {
   return (
@@ -29,6 +31,8 @@ export default function App() {
           <Route path="wizard" element={<WizardPage />} />
           <Route path="search" element={<SearchPage />} />
           <Route path="scroll" element={<InfiniteScrollPage />} />
+          <Route path="privacy" element={<PrivacyPolicyPage />} />
+          <Route path="terms" element={<TermsOfServicePage />} />
           <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>

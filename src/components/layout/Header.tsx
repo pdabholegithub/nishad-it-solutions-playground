@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import { ChevronRight } from 'lucide-react';
 
 const PAGE_LABELS: Record<string, string> = {
@@ -24,7 +24,9 @@ export function Header() {
         <ol role="list" className="flex items-center space-x-2" data-testid="breadcrumb-nav">
           <li>
             <div className="flex items-center">
-              <span className="text-gray-400 text-sm font-medium">Home</span>
+              <Link to="/" className="text-gray-400 hover:text-primary text-sm font-medium transition-colors" data-testid="breadcrumb-home">
+                Home
+              </Link>
             </div>
           </li>
           {pathnames.map((value, index) => {

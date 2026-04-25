@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
 import { ImageCarousel } from '../components/ui/ImageCarousel';
+import { ArrowLeft } from 'lucide-react';
 
 export function AdvancedUIPage() {
   const [activeTab, setActiveTab] = useState('tab1');
@@ -23,8 +25,14 @@ export function AdvancedUIPage() {
 
   return (
     <div className="max-w-5xl space-y-8">
-      <div>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <h1 className="text-3xl font-bold tracking-tight text-gray-900" data-testid="advanced-page-title">Advanced UI Components</h1>
+        <Link to="/">
+          <Button variant="outline" className="gap-2" data-testid="back-to-home-btn">
+            <ArrowLeft className="h-4 w-4" />
+            Back to Dashboard
+          </Button>
+        </Link>
       </div>
 
       {/* Embedded Carousel matching screenshot */}

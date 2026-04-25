@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
 import { 
   FormInput, 
   MousePointerClick, 
@@ -45,7 +45,9 @@ export function Sidebar() {
         isMobileOpen ? "translate-x-0" : "-translate-x-full"
       )}>
         <div className="flex h-16 shrink-0 items-center px-6 bg-slate-950 font-bold text-white tracking-wide">
-          <span data-testid="app-logo">Nishad IT Playground</span>
+          <Link to="/" className="hover:text-primary transition-colors" data-testid="app-logo">
+            Nishad IT Playground
+          </Link>
         </div>
         <nav className="flex flex-1 flex-col p-4 overflow-y-auto">
           <ul role="list" className="flex flex-1 flex-col gap-y-2">

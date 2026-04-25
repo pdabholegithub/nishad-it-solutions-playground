@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/Button';
-import { X } from 'lucide-react';
+import { X, ArrowLeft } from 'lucide-react';
 
 export function AlertsPage() {
   const [alertResult, setAlertResult] = useState('');
@@ -41,9 +42,17 @@ export function AlertsPage() {
 
   return (
     <div className="max-w-3xl space-y-8 relative pb-20">
-      <div>
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900" data-testid="alerts-page-title">Alerts, Dialogs & Toasts</h1>
-        <p className="text-gray-500 mt-2">Trigger un-stylable native JS alerts and dynamic fading toast notifications.</p>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight text-gray-900" data-testid="alerts-page-title">Alerts, Dialogs & Toasts</h1>
+          <p className="text-gray-500 mt-2">Trigger un-stylable native JS alerts and dynamic fading toast notifications.</p>
+        </div>
+        <Link to="/">
+          <Button variant="outline" className="gap-2" data-testid="back-to-home-btn">
+            <ArrowLeft className="h-4 w-4" />
+            Back to Dashboard
+          </Button>
+        </Link>
       </div>
 
       <div className="bg-white p-6 rounded-lg shadow-sm border border-gray-200">

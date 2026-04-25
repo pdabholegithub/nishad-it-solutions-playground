@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/Button';
+import { ArrowLeft } from 'lucide-react';
 
 export function ChallengesPage() {
   const [delayedElementReady, setDelayedElementReady] = useState(false);
@@ -46,9 +48,17 @@ export function ChallengesPage() {
 
   return (
     <div className="max-w-4xl space-y-8 pb-10">
-      <div>
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900" data-testid="challenges-page-title">Automation Challenges</h1>
-        <p className="text-gray-500 mt-2">Complex scenarios to test your framework capabilities.</p>
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+        <div>
+          <h1 className="text-3xl font-bold tracking-tight text-gray-900" data-testid="challenges-page-title">Automation Challenges</h1>
+          <p className="text-gray-500 mt-2">Complex scenarios to test your framework capabilities.</p>
+        </div>
+        <Link to="/">
+          <Button variant="outline" className="gap-2" data-testid="back-to-home-btn">
+            <ArrowLeft className="h-4 w-4" />
+            Back to Dashboard
+          </Button>
+        </Link>
       </div>
 
       {/* Delayed Rendering */}
