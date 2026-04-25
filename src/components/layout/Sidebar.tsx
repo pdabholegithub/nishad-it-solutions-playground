@@ -34,7 +34,7 @@ export function Sidebar() {
   return (
     <>
       <div className="md:hidden flex items-center justify-between bg-slate-900 text-white p-4">
-        <span className="font-bold text-lg">Nishad IT Solutions</span>
+        <span className="font-bold text-lg">Nishad IT Playground</span>
         <button onClick={() => setIsMobileOpen(!isMobileOpen)} data-testid="mobile-menu-btn">
           <Menu />
         </button>
@@ -45,7 +45,7 @@ export function Sidebar() {
         isMobileOpen ? "translate-x-0" : "-translate-x-full"
       )}>
         <div className="flex h-16 shrink-0 items-center px-6 bg-slate-950 font-bold text-white tracking-wide">
-          <span data-testid="app-logo">Nishad IT Solutions</span>
+          <span data-testid="app-logo">Nishad IT Playground</span>
         </div>
         <nav className="flex flex-1 flex-col p-4 overflow-y-auto">
           <ul role="list" className="flex flex-1 flex-col gap-y-2">

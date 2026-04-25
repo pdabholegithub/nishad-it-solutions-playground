@@ -1,10 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
 import { Label } from '../components/ui/Label';
 
 export function WizardPage() {
   const [step, setStep] = useState(1);
+
+  useEffect(() => {
+    document.title = 'Wizard Checkout | Nishad IT Playground';
+  }, []);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -36,7 +40,7 @@ export function WizardPage() {
   return (
     <div className="max-w-3xl space-y-8 pb-10">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900" data-testid="page-title">Multi-Step Checkout Wizard</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-gray-900" data-testid="wizard-page-title">Multi-Step Checkout Wizard</h1>
         <p className="text-gray-500 mt-2">Test state persistence and dynamic form validation across multiple views.</p>
       </div>
 

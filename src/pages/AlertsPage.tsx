@@ -1,10 +1,14 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '../components/ui/Button';
 import { X } from 'lucide-react';
 
 export function AlertsPage() {
   const [alertResult, setAlertResult] = useState('');
   const [toasts, setToasts] = useState<{ id: number, message: string, type: 'success' | 'error' }[]>([]);
+
+  useEffect(() => {
+    document.title = 'Alerts & Toasts | Nishad IT Playground';
+  }, []);
 
   const triggerAlert = () => {
     window.alert('This is a simple alert!');
@@ -38,7 +42,7 @@ export function AlertsPage() {
   return (
     <div className="max-w-3xl space-y-8 relative pb-20">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900" data-testid="page-title">Alerts, Dialogs & Toasts</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-gray-900" data-testid="alerts-page-title">Alerts, Dialogs & Toasts</h1>
         <p className="text-gray-500 mt-2">Trigger un-stylable native JS alerts and dynamic fading toast notifications.</p>
       </div>
 

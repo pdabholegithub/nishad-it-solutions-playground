@@ -1,9 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '../components/ui/Button';
 
 export function InteractionsPage() {
   const [clickState, setClickState] = useState('');
   const [keyPress, setKeyPress] = useState('');
+
+  useEffect(() => {
+    document.title = 'Interactions | Nishad IT Playground';
+  }, []);
 
   const onDragStart = (e: React.DragEvent) => {
     e.dataTransfer.setData('text/plain', 'Draggable Element');
@@ -22,7 +26,7 @@ export function InteractionsPage() {
   return (
     <div className="max-w-4xl space-y-8">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900" data-testid="page-title">Interactions</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-gray-900" data-testid="interactions-page-title">Interactions</h1>
         <p className="text-gray-500 mt-2">Practice mouse and keyboard interactions.</p>
       </div>
 

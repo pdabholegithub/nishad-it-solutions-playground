@@ -24,6 +24,10 @@ export function SearchPage() {
   const [dropdownVisible, setDropdownVisible] = useState(false);
 
   useEffect(() => {
+    document.title = 'Autocomplete | Nishad IT Playground';
+  }, []);
+
+  useEffect(() => {
     // 500ms Debounce Logic
     if (query.trim().length === 0) {
       setResults([]);
@@ -36,7 +40,7 @@ export function SearchPage() {
     setDropdownVisible(true);
 
     const timer = setTimeout(() => {
-      const filtered = MOCK_DB.filter(item => 
+      const filtered = MOCK_DB.filter(item =>
         item.toLowerCase().includes(query.toLowerCase())
       );
       setResults(filtered);
@@ -49,7 +53,7 @@ export function SearchPage() {
   return (
     <div className="max-w-3xl space-y-8 pb-10">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900" data-testid="page-title">Autocomplete Search</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-gray-900" data-testid="search-page-title">Autocomplete Search</h1>
         <p className="text-gray-500 mt-2">Test debounce logic, keyboard navigation, and dynamic dropdown list states.</p>
       </div>
 

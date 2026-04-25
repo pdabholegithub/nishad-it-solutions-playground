@@ -5,6 +5,10 @@ export function InfiniteScrollPage() {
   const [isLoading, setIsLoading] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
+  useEffect(() => {
+    document.title = 'Infinite Scroll | Nishad IT Playground';
+  }, []);
+
   const loadMoreItems = () => {
     setIsLoading(true);
     // Simulate network latency before appending
@@ -43,7 +47,7 @@ export function InfiniteScrollPage() {
   return (
     <div className="max-w-3xl space-y-8 pb-10">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900" data-testid="page-title">Infinite Scrolling Container</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-gray-900" data-testid="scroll-page-title">Infinite Scrolling Container</h1>
         <p className="text-gray-500 mt-2">Test your automation script's ability to trigger scrolls and assert lazy-loaded DOM injection.</p>
       </div>
 

@@ -1,4 +1,4 @@
-import { HashRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import { MainLayout } from './components/layout/MainLayout';
 import { HomePage } from './pages/HomePage';
 import { AuthPage } from './pages/auth/AuthPage';
@@ -11,6 +11,7 @@ import { ApiIntegrationPage } from './pages/ApiIntegrationPage';
 import { WizardPage } from './pages/WizardPage';
 import { SearchPage } from './pages/SearchPage';
 import { InfiniteScrollPage } from './pages/InfiniteScrollPage';
+import { NotFoundPage } from './pages/NotFoundPage';
 
 export default function App() {
   return (
@@ -28,7 +29,7 @@ export default function App() {
           <Route path="wizard" element={<WizardPage />} />
           <Route path="search" element={<SearchPage />} />
           <Route path="scroll" element={<InfiniteScrollPage />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </Router>

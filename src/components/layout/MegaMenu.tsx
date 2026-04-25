@@ -5,10 +5,14 @@ export function MegaMenu() {
     <div className="w-full bg-white border-b border-gray-200 hidden lg:block z-30 relative shadow-sm">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <ul className="flex items-center gap-6 text-sm font-medium text-gray-700 h-12" data-testid="mega-menu-list">
+          {/* ⚠️ These menu items are intentional test targets for practising automation on e-commerce navigation */}
+          <li className="hidden lg:flex items-center gap-1.5 text-xs font-semibold text-amber-600 bg-amber-50 rounded-full px-2.5 py-1 ring-1 ring-amber-200 select-none" title="These are sample navigation items for automation practice">
+            <span>⚠️</span> Sample E-Commerce Nav (Test Target)
+          </li>
           
-          <li className="cursor-pointer hover:text-primary transition-colors">Men's Fashion</li>
-          <li className="cursor-pointer hover:text-primary transition-colors">Women's Fashion</li>
-          <li className="cursor-pointer hover:text-primary transition-colors">Home & Kitchen</li>
+          <li className="cursor-pointer hover:text-primary transition-colors" data-testid="nav-mens-fashion">Men's Fashion</li>
+          <li className="cursor-pointer hover:text-primary transition-colors" data-testid="nav-womens-fashion">Women's Fashion</li>
+          <li className="cursor-pointer hover:text-primary transition-colors" data-testid="nav-home-kitchen">Home &amp; Kitchen</li>
           
           {/* Automotives Mega Menu Item */}
           <li className="group cursor-pointer hover:text-primary transition-colors h-full flex items-center" data-testid="nav-automotives">
@@ -83,8 +87,8 @@ export function MegaMenu() {
             </div>
           </li>
 
-          <li className="cursor-pointer hover:text-primary transition-colors">Mobile Accessories</li>
-          <li className="cursor-pointer hover:text-primary transition-colors">Electronics</li>
+          <li className="cursor-pointer hover:text-primary transition-colors" data-testid="nav-mobile-accessories">Mobile Accessories</li>
+          <li className="cursor-pointer hover:text-primary transition-colors" data-testid="nav-electronics">Electronics</li>
         </ul>
       </div>
     </div>

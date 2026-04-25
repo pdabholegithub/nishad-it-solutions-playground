@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '../components/ui/Button';
 import { Input } from '../components/ui/Input';
 import { ImageCarousel } from '../components/ui/ImageCarousel';
@@ -7,6 +7,10 @@ export function AdvancedUIPage() {
   const [activeTab, setActiveTab] = useState('tab1');
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [searchQuery, setSearchQuery] = useState('');
+
+  useEffect(() => {
+    document.title = 'Advanced UI | Nishad IT Playground';
+  }, []);
 
   const users = [
     { id: 1, name: 'Alice Smith', role: 'Admin', status: 'Active' },
@@ -20,7 +24,7 @@ export function AdvancedUIPage() {
   return (
     <div className="max-w-5xl space-y-8">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900" data-testid="page-title">Advanced UI Components</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-gray-900" data-testid="advanced-page-title">Advanced UI Components</h1>
       </div>
 
       {/* Embedded Carousel matching screenshot */}

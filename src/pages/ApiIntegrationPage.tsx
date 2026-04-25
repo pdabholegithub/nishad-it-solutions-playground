@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Button } from '../components/ui/Button';
 
 interface Post {
@@ -11,6 +11,10 @@ export function ApiIntegrationPage() {
   const [data, setData] = useState<Post[]>([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
+
+  useEffect(() => {
+    document.title = 'API Integration | Nishad IT Playground';
+  }, []);
 
   const fetchData = async (shouldFail = false) => {
     setLoading(true);
@@ -39,7 +43,7 @@ export function ApiIntegrationPage() {
   return (
     <div className="max-w-4xl space-y-8">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900" data-testid="page-title">API Integration</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-gray-900" data-testid="api-page-title">API Integration</h1>
         <p className="text-gray-500 mt-2">Test asynchronous operations and loading states.</p>
       </div>
 

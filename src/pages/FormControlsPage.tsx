@@ -3,15 +3,19 @@ import { Input } from '../components/ui/Input';
 import { Label } from '../components/ui/Label';
 import { Checkbox } from '../components/ui/Checkbox';
 import { ToggleSwitch } from '../components/ui/ToggleSwitch';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export function FormControlsPage() {
   const [sliderVal, setSliderVal] = useState(50);
+
+  useEffect(() => {
+    document.title = 'Form Controls | Nishad IT Playground';
+  }, []);
   
   return (
     <div className="max-w-3xl space-y-8">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900" data-testid="page-title">Form Controls</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-gray-900" data-testid="forms-page-title">Form Controls</h1>
         <p className="text-gray-500 mt-2">Interact with various form elements designed for automation testing.</p>
       </div>
 

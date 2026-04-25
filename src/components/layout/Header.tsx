@@ -1,5 +1,18 @@
 import { useLocation } from 'react-router-dom';
-import { ChevronRight, UserCircle } from 'lucide-react';
+import { ChevronRight } from 'lucide-react';
+
+const PAGE_LABELS: Record<string, string> = {
+  auth: 'Authentication',
+  forms: 'Form Controls',
+  wizard: 'Wizard Checkout',
+  search: 'Autocomplete',
+  scroll: 'Infinite Scroll',
+  interactions: 'Interactions',
+  advanced: 'Advanced UI',
+  challenges: 'Challenges',
+  alerts: 'Alerts & Toasts',
+  api: 'API Integration',
+};
 
 export function Header() {
   const location = useLocation();
@@ -16,14 +29,16 @@ export function Header() {
           </li>
           {pathnames.map((value, index) => {
             const isLast = index === pathnames.length - 1;
-            const to = `/${pathnames.slice(0, index + 1).join('/')}`;
-
+            const label = PAGE_LABELS[value] ?? (value.charAt(0).toUpperCase() + value.slice(1));
             return (
-              <li key={to}>
+              <li key={value}>
                 <div className="flex items-center">
                   <ChevronRight className="h-4 w-4 shrink-0 text-gray-400" aria-hidden="true" />
-                  <span className={`ml-2 text-sm font-medium ${isLast ? 'text-gray-700' : 'text-gray-500'}`}>
-                    {value.charAt(0).toUpperCase() + value.slice(1)}
+                  <span
+                    className={`ml-2 text-sm font-medium ${isLast ? 'text-gray-700' : 'text-gray-500'}`}
+                    data-testid={`breadcrumb-${value}`}
+                  >
+                    {label}
                   </span>
                 </div>
               </li>
@@ -31,21 +46,13 @@ export function Header() {
           })}
         </ol>
       </div>
-      <div className="flex items-center gap-x-4 lg:gap-x-6">
-        <nav className="hidden md:flex items-center gap-x-4 text-sm font-medium text-gray-600">
-          <a href="#" className="hover:text-primary transition-colors">Documentation</a>
-          <a href="#" className="hover:text-primary transition-colors">Support</a>
-        </nav>
-        <div className="hidden lg:block lg:h-6 lg:w-px lg:bg-gray-200" aria-hidden="true" />
-        <div className="flex items-center gap-x-4">
-          <span className="sr-only">Your profile</span>
-          <UserCircle className="h-8 w-8 text-gray-400" aria-hidden="true" />
-          <span className="hidden lg:flex lg:items-center">
-            <span className="ml-4 text-sm font-semibold leading-6 text-gray-900" aria-hidden="true">
-              Test User
-            </span>
-          </span>
-        </div>
+
+      {/* Right side: QA mode badge */}
+      <div className="flex items-center gap-x-3">
+        <span className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-green-50 px-3 py-1 text-xs font-semibold text-green-700 ring-1 ring-inset ring-green-600/20" data-testid="qa-mode-badge">
+          <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
+          QA Mode Active
+        </span>
       </div>
     </header>
   );

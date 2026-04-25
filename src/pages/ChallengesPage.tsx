@@ -3,9 +3,13 @@ import { Button } from '../components/ui/Button';
 
 export function ChallengesPage() {
   const [delayedElementReady, setDelayedElementReady] = useState(false);
-  const [dynamicId, setDynamicId] = useState(`dynamic-${Math.random().toString(36).substr(2, 9)}`);
+  const [dynamicId, setDynamicId] = useState(`dynamic-${Math.random().toString(36).substring(2, 11)}`);
   
   const shadowHostRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    document.title = 'Challenges | Nishad IT Playground';
+  }, []);
 
   useEffect(() => {
     // Delayed Element Simulation
@@ -15,7 +19,7 @@ export function ChallengesPage() {
 
     // Dynamic ID simulation
     const intervalId = setInterval(() => {
-      setDynamicId(`dynamic-${Math.random().toString(36).substr(2, 9)}`);
+      setDynamicId(`dynamic-${Math.random().toString(36).substring(2, 11)}`);
     }, 2000);
 
     // Shadow DOM setup
@@ -43,7 +47,7 @@ export function ChallengesPage() {
   return (
     <div className="max-w-4xl space-y-8 pb-10">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight text-gray-900" data-testid="page-title">Automation Challenges</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-gray-900" data-testid="challenges-page-title">Automation Challenges</h1>
         <p className="text-gray-500 mt-2">Complex scenarios to test your framework capabilities.</p>
       </div>
 
