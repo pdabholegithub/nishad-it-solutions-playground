@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Button } from '../components/ui/Button';
-import { ArrowLeft, Link2, Key, UserPlus, FileText, Trash2, Send, Database } from 'lucide-react';
+import { ArrowLeft, Link2, Key, UserPlus, FileText, Send, Database, Search } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 interface ApiLog {

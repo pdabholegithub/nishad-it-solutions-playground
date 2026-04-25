@@ -165,7 +165,7 @@ export function MasteryChallengesPage() {
             <Input 
               placeholder="Set cookie value..." 
               value={cookieValue}
-              onChange={(e) => setCookieValue(e.target.value)}
+              onChange={(e: any) => setCookieValue(e.target.value)}
               className="max-w-[200px]"
               data-testid="cookie-input"
             />
