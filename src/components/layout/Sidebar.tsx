@@ -50,7 +50,7 @@ export function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
       </div>
 
       <div className={cn(
-        "fixed inset-y-0 left-0 z-50 bg-slate-900 text-slate-300 transition-all duration-300 md:relative md:translate-x-0",
+        "fixed inset-y-0 left-0 z-50 bg-slate-900 text-slate-300 transition-all duration-300 md:relative md:translate-x-0 h-full flex flex-col",
         isMobileOpen ? "translate-x-0 w-64" : "-translate-x-full md:translate-x-0",
         isCollapsed ? "md:w-20" : "md:w-64"
       )}>
@@ -72,8 +72,8 @@ export function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
           <Menu className="h-3 w-3" />
         </button>
 
-        <nav className="flex flex-1 flex-col p-4 overflow-y-auto overflow-x-hidden">
-          <ul role="list" className="flex flex-1 flex-col gap-y-2">
+        <nav className="flex-1 overflow-y-auto overflow-x-hidden custom-scrollbar">
+          <ul role="list" className="flex flex-col gap-y-2 p-4 pb-20">
             {navigation.map((item) => (
               <li key={item.name}>
                 <NavLink
