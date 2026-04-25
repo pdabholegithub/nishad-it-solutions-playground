@@ -32,7 +32,12 @@ const navigation = [
   { name: 'API Mastery Lab', href: '/api-chaining', icon: Link2 },
 ];
 
-export function Sidebar() {
+interface SidebarProps {
+  isCollapsed: boolean;
+  setIsCollapsed: (value: boolean) => void;
+}
+
+export function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   return (
@@ -45,29 +50,45 @@ export function Sidebar() {
       </div>
 
       <div className={cn(
-        "fixed inset-y-0 left-0 z-50 w-64 bg-slate-900 text-slate-300 transition-transform duration-300 md:relative md:translate-x-0",
-        isMobileOpen ? "translate-x-0" : "-translate-x-full"
+        "fixed inset-y-0 left-0 z-50 bg-slate-900 text-slate-300 transition-all duration-300 md:relative md:translate-x-0",
+        isMobileOpen ? "translate-x-0 w-64" : "-translate-x-full md:translate-x-0",
+        isCollapsed ? "md:w-20" : "md:w-64"
       )}>
-        <div className="flex h-16 shrink-0 items-center px-6 bg-slate-950 font-bold text-white tracking-wide">
-          <Link to="/" className="hover:text-primary transition-colors" data-testid="app-logo">
-            Nishad IT Playground
+        <div className={cn(
+          "flex h-16 shrink-0 items-center bg-slate-950 font-bold text-white tracking-wide transition-all duration-300",
+          isCollapsed ? "justify-center px-0" : "px-6"
+        )}>
+          <Link to="/" className="hover:text-primary transition-colors truncate" data-testid="app-logo">
+            {isCollapsed ? "NIT" : "Nishad IT Playground"}
           </Link>
         </div>
-        <nav className="flex flex-1 flex-col p-4 overflow-y-auto">
+
+        {/* Collapse Toggle Desktop */}
+        <button 
+          onClick={() => setIsCollapsed(!isCollapsed)}
+          className="hidden md:flex absolute -right-3 top-20 h-6 w-6 items-center justify-center rounded-full bg-primary text-white shadow-lg z-50 hover:scale-110 transition-transform"
+          title={isCollapsed ? "Expand Sidebar" : "Collapse Sidebar"}
+        >
+          <Menu className="h-3 w-3" />
+        </button>
+
+        <nav className="flex flex-1 flex-col p-4 overflow-y-auto overflow-x-hidden">
           <ul role="list" className="flex flex-1 flex-col gap-y-2">
             {navigation.map((item) => (
               <li key={item.name}>
                 <NavLink
                   to={item.href}
                   onClick={() => setIsMobileOpen(false)}
+                  title={isCollapsed ? item.name : ""}
                   data-testid={`nav-${item.name.toLowerCase().replace(/\s+/g, '-')}`}
                   className={({ isActive }) => cn(
                     isActive ? 'bg-primary text-white' : 'hover:text-white hover:bg-slate-800',
-                    'group flex gap-x-3 rounded-md p-2 text-sm leading-6 font-medium transition-colors'
+                    'group flex items-center gap-x-3 rounded-md p-2 text-sm leading-6 font-medium transition-all duration-200',
+                    isCollapsed ? "justify-center px-2" : ""
                   )}
                 >
-                  <item.icon className="h-5 w-5 shrink-0" aria-hidden="true" />
-                  {item.name}
+                  <item.icon className={cn("h-5 w-5 shrink-0 transition-transform duration-200", !isCollapsed && "group-hover:scale-110")} aria-hidden="true" />
+                  {!isCollapsed && <span className="truncate">{item.name}</span>}
                 </NavLink>
               </li>
             ))}
