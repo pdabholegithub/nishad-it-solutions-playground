@@ -63,15 +63,6 @@ export function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
           </Link>
         </div>
 
-        {/* Collapse Toggle Desktop */}
-        <button 
-          onClick={() => setIsCollapsed(!isCollapsed)}
-          className="hidden md:flex absolute -right-3 top-20 h-6 w-6 items-center justify-center rounded-full bg-primary text-white shadow-lg z-50 hover:scale-110 transition-transform"
-          title={isCollapsed ? "Expand Sidebar" : "Collapse Sidebar"}
-        >
-          <Menu className="h-3 w-3" />
-        </button>
-
         <nav className="flex-1 overflow-y-auto overflow-x-hidden custom-scrollbar">
           <ul role="list" className="flex flex-col gap-y-2 p-4 pb-20">
             {navigation.map((item) => (

@@ -1,5 +1,5 @@
 import { useLocation, Link } from 'react-router-dom';
-import { ChevronRight, ExternalLink } from 'lucide-react';
+import { ChevronRight, ExternalLink, Menu } from 'lucide-react';
 
 const PAGE_LABELS: Record<string, string> = {
   auth: 'Authentication',
@@ -14,13 +14,29 @@ const PAGE_LABELS: Record<string, string> = {
   api: 'API Integration',
 };
 
-export function Header() {
+interface HeaderProps {
+  isCollapsed: boolean;
+  setIsCollapsed: (value: boolean) => void;
+}
+
+export function Header({ isCollapsed, setIsCollapsed }: HeaderProps) {
   const location = useLocation();
   const pathnames = location.pathname.split('/').filter((x) => x);
 
   return (
     <header className="sticky top-0 z-40 flex h-16 shrink-0 items-center justify-between gap-x-4 border-b border-gray-200 bg-white px-4 shadow-sm sm:gap-x-6 sm:px-6 lg:px-8">
-      <div className="flex flex-1" aria-label="Breadcrumb">
+      <div className="flex items-center gap-4 flex-1">
+        {/* Collapse Toggle Desktop */}
+        <button 
+          onClick={() => setIsCollapsed(!isCollapsed)}
+          className="hidden md:flex h-10 w-10 items-center justify-center rounded-lg bg-slate-50 text-slate-600 hover:bg-primary/10 hover:text-primary transition-all border border-slate-200"
+          title={isCollapsed ? "Expand Sidebar" : "Collapse Sidebar"}
+          data-testid="sidebar-toggle"
+        >
+          <Menu className={`h-5 w-5 transition-transform duration-300 ${isCollapsed ? 'rotate-180' : ''}`} />
+        </button>
+
+        <div className="flex flex-1" aria-label="Breadcrumb">
         <ol role="list" className="flex items-center space-x-2" data-testid="breadcrumb-nav">
           <li>
             <div className="flex items-center">
@@ -47,6 +63,7 @@ export function Header() {
             );
           })}
         </ol>
+      </div>
       </div>
 
       {/* Right side: External links & QA mode badge */}
