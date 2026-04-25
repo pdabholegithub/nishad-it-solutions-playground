@@ -1,5 +1,5 @@
 import { useLocation, Link } from 'react-router-dom';
-import { ChevronRight } from 'lucide-react';
+import { ChevronRight, ExternalLink } from 'lucide-react';
 
 const PAGE_LABELS: Record<string, string> = {
   auth: 'Authentication',
@@ -49,8 +49,18 @@ export function Header() {
         </ol>
       </div>
 
-      {/* Right side: QA mode badge */}
-      <div className="flex items-center gap-x-3">
+      {/* Right side: External links & QA mode badge */}
+      <div className="flex items-center gap-x-4">
+        <a 
+          href="https://nishad-institute.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hidden md:flex items-center gap-1.5 text-sm font-semibold text-primary hover:text-primary/80 transition-colors"
+          data-testid="header-link-institute"
+        >
+          Visit Institute <ExternalLink className="h-3.5 w-3.5" />
+        </a>
+        <div className="hidden md:block h-6 w-px bg-gray-200" />
         <span className="hidden sm:inline-flex items-center gap-1.5 rounded-full bg-green-50 px-3 py-1 text-xs font-semibold text-green-700 ring-1 ring-inset ring-green-600/20" data-testid="qa-mode-badge">
           <span className="h-1.5 w-1.5 rounded-full bg-green-500 animate-pulse" />
           QA Mode Active

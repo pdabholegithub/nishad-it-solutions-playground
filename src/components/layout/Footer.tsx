@@ -9,6 +9,15 @@ export function Footer() {
         </p>
         <nav className="flex gap-4 text-sm font-medium text-gray-500">
           {/* These links are intentional test targets for QA automation practice */}
+          <a
+            href="https://nishad-institute.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:text-primary transition-colors flex items-center gap-1"
+            data-testid="footer-link-institute"
+          >
+            🏛️ Nishad Institute
+          </a>
           <Link
             to="/privacy"
             className="hover:text-primary transition-colors"

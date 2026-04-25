@@ -3,6 +3,7 @@
 A comprehensive AI-powered learning and QA automation platform built with **React + TypeScript + Vite**.
 
 🌐 **Live Site:** [pdabholegithub.github.io/nishad-it-solutions-playground](https://pdabholegithub.github.io/nishad-it-solutions-playground/)
+🏛️ **Main Website:** [nishad-institute.vercel.app](https://nishad-institute.vercel.app/)
 
 ## Features
 
