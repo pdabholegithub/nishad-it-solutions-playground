@@ -9,6 +9,7 @@ import { ArrowLeft } from 'lucide-react';
 
 export function FormControlsPage() {
   const [sliderVal, setSliderVal] = useState(50);
+  const [rating, setRating] = useState(0);
 
   useEffect(() => {
     document.title = 'Form Controls | Nishad IT Playground';
@@ -113,24 +114,58 @@ export function FormControlsPage() {
           </div>
         </section>
 
-        {/* Textarea & Slider */}
+        {/* Textarea, Slider, Rating & Color */}
         <section className="space-y-4">
-          <h2 className="text-xl font-semibold border-b pb-2">Other</h2>
+          <h2 className="text-xl font-semibold border-b pb-2">Other Controls</h2>
           <div className="space-y-2">
             <Label htmlFor="textarea">Comments</Label>
             <textarea id="textarea" className="flex min-h-[100px] w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary" placeholder="Leave a message..." data-testid="textarea-comments"></textarea>
           </div>
-          <div className="space-y-2 mt-4">
-            <Label htmlFor="slider">Slider Control ({sliderVal})</Label>
-            <input 
-              type="range" 
-              id="slider" 
-              min="0" max="100" 
-              value={sliderVal} 
-              onChange={(e) => setSliderVal(parseInt(e.target.value))} 
-              className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer"
-              data-testid="input-slider"
-            />
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-6">
+            <div className="space-y-2">
+              <Label htmlFor="slider">Slider Control ({sliderVal})</Label>
+              <input 
+                type="range" 
+                id="slider" 
+                min="0" max="100" 
+                value={sliderVal} 
+                onChange={(e) => setSliderVal(parseInt(e.target.value))} 
+                className="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-primary"
+                data-testid="input-slider"
+              />
+            </div>
+            <div className="space-y-2">
+              <Label>Star Rating ({rating} Stars)</Label>
+              <div className="flex gap-1" data-testid="star-rating">
+                {[1, 2, 3, 4, 5].map((star) => (
+                  <button 
+                    key={star} 
+                    onClick={() => setRating(star)}
+                    className={`transition-colors ${star <= rating ? 'text-yellow-400' : 'text-gray-300'} hover:text-yellow-500`} 
+                    data-testid={`star-${star}`}
+                  >
+                    <svg className="w-8 h-8 fill-current" viewBox="0 0 20 20">
+                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
+                    </svg>
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
+          <div className="space-y-2 mt-6">
+            <Label htmlFor="color-picker">Color Picker</Label>
+            <div className="flex items-center gap-4">
+              <input 
+                type="color" 
+                id="color-picker" 
+                defaultValue="#f97316"
+                className="h-12 w-12 rounded cursor-pointer border-none bg-transparent"
+                data-testid="input-color"
+              />
+              <span className="text-sm text-gray-500 font-medium">Select a hex color code</span>
+            </div>
           </div>
         </section>
 

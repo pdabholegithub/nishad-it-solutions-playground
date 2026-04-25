@@ -79,6 +79,16 @@ export function AdvancedUIPage() {
               </tbody>
             </table>
           </div>
+          {/* Pagination Enhancement */}
+          <div className="flex items-center justify-between border-t pt-4" data-testid="table-pagination">
+            <div className="text-xs text-gray-500">
+              Showing <span className="font-semibold text-gray-900">1</span> to <span className="font-semibold text-gray-900">{filteredUsers.length}</span> of <span className="font-semibold text-gray-900">{users.length}</span> results
+            </div>
+            <div className="flex gap-2">
+              <button disabled className="px-3 py-1 text-xs font-medium bg-gray-100 text-gray-400 rounded cursor-not-allowed border" data-testid="pagination-prev">Previous</button>
+              <button className="px-3 py-1 text-xs font-medium bg-white text-gray-700 rounded border hover:bg-slate-50" data-testid="pagination-next">Next</button>
+            </div>
+          </div>
         </section>
 
         {/* Modal Section */}

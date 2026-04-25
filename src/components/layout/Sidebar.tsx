@@ -10,7 +10,9 @@ import {
   Menu,
   FileDigit,
   Search,
-  ArrowDownToLine
+  ArrowDownToLine,
+  Zap,
+  Link2
 } from 'lucide-react';
 import { cn } from '../../utils/cn';
 import { useState } from 'react';
@@ -24,8 +26,10 @@ const navigation = [
   { name: 'Interactions', href: '/interactions', icon: MousePointerClick },
   { name: 'Advanced UI', href: '/advanced', icon: Layers },
   { name: 'Challenges', href: '/challenges', icon: ShieldAlert },
+  { name: 'Mastery Challenges', href: '/mastery', icon: Zap },
   { name: 'Alerts & Toasts', href: '/alerts', icon: BellRing },
   { name: 'API Integration', href: '/api', icon: Database },
+  { name: 'API Mastery Lab', href: '/api-chaining', icon: Link2 },
 ];
 
 export function Sidebar() {

@@ -3,26 +3,28 @@ import { useEffect } from 'react';
 import {
   Lock, FormInput, FileDigit, Search, ArrowDownToLine,
   MousePointerClick, Layers, ShieldAlert, BellRing, Database,
-  ChevronRight, Code2, TestTube2, Zap
+  ChevronRight, Code2, TestTube2, Zap, Link2
 } from 'lucide-react';
 
 const sections = [
-  { name: 'Authentication', href: '/auth', icon: Lock, description: 'Login, signup, and forgot-password flows with mock error states.', color: 'bg-blue-50 text-blue-600', badge: 'Forms' },
-  { name: 'Form Controls', href: '/forms', icon: FormInput, description: 'Text inputs, selects, checkboxes, toggles, date pickers, sliders & file uploads.', color: 'bg-purple-50 text-purple-600', badge: 'Inputs' },
-  { name: 'Wizard Checkout', href: '/wizard', icon: FileDigit, description: 'Multi-step form wizard with progress tracking and state persistence.', color: 'bg-orange-50 text-orange-600', badge: 'Multi-Step' },
-  { name: 'Autocomplete', href: '/search', icon: Search, description: 'Search with debounced live suggestions and dynamic dropdown states.', color: 'bg-cyan-50 text-cyan-600', badge: 'Dynamic' },
-  { name: 'Infinite Scroll', href: '/scroll', icon: ArrowDownToLine, description: 'Lazy-loaded list items that inject into DOM as you scroll.', color: 'bg-teal-50 text-teal-600', badge: 'Scroll' },
-  { name: 'Interactions', href: '/interactions', icon: MousePointerClick, description: 'Drag & drop, double-click, right-click context menus, and keyboard events.', color: 'bg-pink-50 text-pink-600', badge: 'Events' },
+  { name: 'Authentication', href: '/auth', icon: Lock, description: 'Login, signup, and forgot-password flows with mock error states.', color: 'bg-primary/10 text-primary', badge: 'Forms' },
+  { name: 'Form Controls', href: '/forms', icon: FormInput, description: 'Text inputs, selects, checkboxes, toggles, date pickers, sliders & file uploads.', color: 'bg-primary/10 text-primary', badge: 'Inputs' },
+  { name: 'Wizard Checkout', href: '/wizard', icon: FileDigit, description: 'Multi-step form wizard with progress tracking and state persistence.', color: 'bg-primary/10 text-primary', badge: 'Multi-Step' },
+  { name: 'Autocomplete', href: '/search', icon: Search, description: 'Search with debounced live suggestions and dynamic dropdown states.', color: 'bg-secondary/10 text-secondary', badge: 'Dynamic' },
+  { name: 'Infinite Scroll', href: '/scroll', icon: ArrowDownToLine, description: 'Lazy-loaded list items that inject into DOM as you scroll.', color: 'bg-secondary/10 text-secondary', badge: 'Scroll' },
+  { name: 'Interactions', href: '/interactions', icon: MousePointerClick, description: 'Drag & drop, double-click, right-click context menus, and keyboard events.', color: 'bg-secondary/10 text-secondary', badge: 'Events' },
   { name: 'Advanced UI', href: '/advanced', icon: Layers, description: 'Image carousels, dynamic data tables, modal dialogs, and tab panels.', color: 'bg-indigo-50 text-indigo-600', badge: 'UI' },
   { name: 'Challenges', href: '/challenges', icon: ShieldAlert, description: 'Shadow DOM, iFrames, dynamic IDs, and delayed rendering elements.', color: 'bg-red-50 text-red-600', badge: 'Hard' },
+  { name: 'Mastery Challenges', href: '/mastery', icon: Zap, description: 'Elite scenarios: deep nested shadow DOM, SVG mastery, and cookie dependencies.', color: 'bg-primary/10 text-primary', badge: 'Elite' },
   { name: 'Alerts & Toasts', href: '/alerts', icon: BellRing, description: 'Browser alerts, confirms, prompts, and custom auto-dismissing toasts.', color: 'bg-yellow-50 text-yellow-600', badge: 'Dialogs' },
   { name: 'API Integration', href: '/api', icon: Database, description: 'Async REST API calls with loading spinners, error handling, and result display.', color: 'bg-green-50 text-green-600', badge: 'Network' },
+  { name: 'API Mastery Lab', href: '/api-chaining', icon: Link2, description: 'The complete automation journey: auth tokens, CRUD, chaining, and negative testing.', color: 'bg-emerald-50 text-emerald-600', badge: 'Expert' },
 ];
 
 const stats = [
-  { label: 'Test Pages', value: '10', icon: TestTube2 },
-  { label: 'UI Components', value: '50+', icon: Layers },
-  { label: 'Hard Challenges', value: '4', icon: ShieldAlert },
+  { label: 'Test Pages', value: '11', icon: TestTube2 },
+  { label: 'UI Components', value: '60+', icon: Layers },
+  { label: 'Elite Challenges', value: '11', icon: Zap },
   { label: 'Framework Agnostic', value: '100%', icon: Code2 },
 ];
 

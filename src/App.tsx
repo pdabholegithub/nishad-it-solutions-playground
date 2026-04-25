@@ -14,6 +14,8 @@ import { InfiniteScrollPage } from './pages/InfiniteScrollPage';
 import { NotFoundPage } from './pages/NotFoundPage';
 import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
 import { TermsOfServicePage } from './pages/TermsOfServicePage';
+import { MasteryChallengesPage } from './pages/MasteryChallengesPage';
+import { ApiChainingPage } from './pages/ApiChainingPage';
 
 export default function App() {
   return (
@@ -26,8 +28,10 @@ export default function App() {
           <Route path="interactions" element={<InteractionsPage />} />
           <Route path="advanced" element={<AdvancedUIPage />} />
           <Route path="challenges" element={<ChallengesPage />} />
+          <Route path="mastery" element={<MasteryChallengesPage />} />
           <Route path="alerts" element={<AlertsPage />} />
           <Route path="api" element={<ApiIntegrationPage />} />
+          <Route path="api-chaining" element={<ApiChainingPage />} />
           <Route path="wizard" element={<WizardPage />} />
           <Route path="search" element={<SearchPage />} />
           <Route path="scroll" element={<InfiniteScrollPage />} />
