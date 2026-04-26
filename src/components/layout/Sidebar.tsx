@@ -34,10 +34,9 @@ const navigation = [
 
 interface SidebarProps {
   isCollapsed: boolean;
-  setIsCollapsed: (value: boolean) => void;
 }
 
-export function Sidebar({ isCollapsed, setIsCollapsed }: SidebarProps) {
+export function Sidebar({ isCollapsed }: SidebarProps) {
   const [isMobileOpen, setIsMobileOpen] = useState(false);
 
   return (
