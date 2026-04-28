@@ -16,7 +16,7 @@ export function Footer() {
             className="hover:text-primary transition-colors flex items-center gap-1"
             data-testid="footer-link-institute"
           >
-            🏛️ Nishad Institute
+            🏛️ Nishad IT Solutions
           </a>
           <Link
             to="/privacy"

@@ -42,7 +42,10 @@ export function Sidebar({ isCollapsed }: SidebarProps) {
   return (
     <>
       <div className="md:hidden flex items-center justify-between bg-slate-900 text-white p-4">
-        <span className="font-bold text-lg">Nishad IT Playground</span>
+        <div className="flex items-center gap-3">
+          <img src="/logo-dark.png" alt="Logo" className="h-8 w-8 object-contain" />
+          <span className="font-bold text-lg">Nishad IT Playground</span>
+        </div>
         <button onClick={() => setIsMobileOpen(!isMobileOpen)} data-testid="mobile-menu-btn">
           <Menu />
         </button>
@@ -57,8 +60,13 @@ export function Sidebar({ isCollapsed }: SidebarProps) {
           "flex h-16 shrink-0 items-center bg-slate-950 font-bold text-white tracking-wide transition-all duration-300",
           isCollapsed ? "justify-center px-0" : "px-6"
         )}>
-          <Link to="/" className="hover:text-primary transition-colors truncate" data-testid="app-logo">
-            {isCollapsed ? "NIT" : "Nishad IT Playground"}
+          <Link to="/" className="flex items-center gap-3 hover:text-primary transition-colors truncate" data-testid="app-logo">
+            <img 
+              src="/logo-dark.png" 
+              alt="Logo" 
+              className={cn("h-8 w-8 object-contain transition-all", isCollapsed ? "h-10 w-10" : "h-8 w-8")} 
+            />
+            {!isCollapsed && <span className="text-lg">Nishad IT Playground</span>}
           </Link>
         </div>
 
