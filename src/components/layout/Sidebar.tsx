@@ -12,7 +12,8 @@ import {
   Search,
   ArrowDownToLine,
   Zap,
-  Link2
+  Link2,
+  Bot
 } from 'lucide-react';
 import { cn } from '../../utils/cn';
 import { useState } from 'react';
@@ -30,6 +31,7 @@ const navigation = [
   { name: 'Alerts & Toasts', href: '/alerts', icon: BellRing },
   { name: 'API Integration', href: '/api', icon: Database },
   { name: 'API Mastery Lab', href: '/api-chaining', icon: Link2 },
+  { name: 'Agent Platform', href: '/agent-platform', icon: Bot },
 ];
 
 interface SidebarProps {
@@ -43,7 +45,7 @@ export function Sidebar({ isCollapsed }: SidebarProps) {
     <>
       <div className="md:hidden flex items-center justify-between bg-slate-900 text-white p-4">
         <div className="flex items-center gap-3">
-          <img src="/logo-dark.png" alt="Logo" className="h-8 w-8 object-contain" />
+          <img src={`${import.meta.env.BASE_URL}logo-dark.png`} alt="Logo" className="h-8 w-8 object-contain" />
           <span className="font-bold text-lg">Nishad IT Playground</span>
         </div>
         <button onClick={() => setIsMobileOpen(!isMobileOpen)} data-testid="mobile-menu-btn">
@@ -62,7 +64,7 @@ export function Sidebar({ isCollapsed }: SidebarProps) {
         )}>
           <Link to="/" className="flex items-center gap-3 hover:text-primary transition-colors truncate" data-testid="app-logo">
             <img 
-              src="/logo-dark.png" 
+              src={`${import.meta.env.BASE_URL}logo-dark.png`} 
               alt="Logo" 
               className={cn("h-8 w-8 object-contain transition-all", isCollapsed ? "h-10 w-10" : "h-8 w-8")} 
             />

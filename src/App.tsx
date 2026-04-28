@@ -16,6 +16,7 @@ import { PrivacyPolicyPage } from './pages/PrivacyPolicyPage';
 import { TermsOfServicePage } from './pages/TermsOfServicePage';
 import { MasteryChallengesPage } from './pages/MasteryChallengesPage';
 import { ApiChainingPage } from './pages/ApiChainingPage';
+import { AgentPlatformPage } from './pages/AgentPlatformPage';
 
 export default function App() {
   return (
@@ -32,6 +33,7 @@ export default function App() {
           <Route path="alerts" element={<AlertsPage />} />
           <Route path="api" element={<ApiIntegrationPage />} />
           <Route path="api-chaining" element={<ApiChainingPage />} />
+          <Route path="agent-platform" element={<AgentPlatformPage />} />
           <Route path="wizard" element={<WizardPage />} />
           <Route path="search" element={<SearchPage />} />
           <Route path="scroll" element={<InfiniteScrollPage />} />
